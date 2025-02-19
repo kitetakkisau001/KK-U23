@@ -88,19 +88,24 @@
       try {
         const response = await fetch(scriptURL, {
           method: 'POST',
-          mode: 'no-cors', // no-cors mode limits detailed responses, but prevents CORS issues
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         });
         
-        // With no-cors mode, the response details might be limited
-        messageDiv.textContent = "Submission sent successfully!";
-        messageDiv.className = "success";
+        const result = await response.json();
+        console.log(result);
         
-        // Optionally reset the form after submission
-        document.getElementById('registrationForm').reset();
+        if (result.result === "success") {
+          messageDiv.textContent = "Submission sent successfully!";
+          messageDiv.className = "success";
+          // Optionally reset the form after successful submission
+          document.getElementById('registrationForm').reset();
+        } else {
+          messageDiv.textContent = "Error: " + result.message;
+          messageDiv.className = "error";
+        }
       } catch (error) {
         messageDiv.textContent = "An error occurred while submitting your data.";
         messageDiv.className = "error";
