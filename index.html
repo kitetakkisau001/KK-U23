@@ -109,6 +109,7 @@
     /* Main Content (Hidden initially) */
     #content {
       display: none;
+      padding-bottom: 80px; /* To ensure content doesn't overlap with footer */
     }
     
     .container {
@@ -158,13 +159,13 @@
     /* Footer Styles */
     footer {
       text-align: center;
-      margin-top: 50px;
       position: fixed;
       bottom: 0;
       width: 100%;
       background-color: #f8f9fa;
       padding: 10px 0;
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      display: none; /* Initially hidden */
     }
 
     .social-icons a {
@@ -201,7 +202,7 @@
 
   <!-- Footer Section -->
   <footer>
-    <p>&copy; Kiteta Kisau Sports</p>
+    <p>&copy; 2025 Kiteta Kisau Sports. All Rights Reserved.</p>
     <div class="social-icons">
       <a href="https://web.facebook.com/kitetakisausports" target="_blank">
         <i class="fab fa-facebook-f"></i>
@@ -219,10 +220,11 @@
   </footer>
   
   <script>
-    // Hide the preloader after 8 seconds and show the main content
+    // Hide the preloader after 8 seconds and show the main content and footer
     setTimeout(function() {
       document.getElementById('preloader').style.display = 'none';
       document.getElementById('content').style.display = 'block';
+      document.querySelector('footer').style.display = 'block';
     }, 8000);
 
     // Timer Script
