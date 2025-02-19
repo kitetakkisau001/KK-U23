@@ -47,7 +47,7 @@
   
   <script>
     // Your provided Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxRX77N0YXwaTvird3xGCL3dX0NFrA2ZHUexBYgPFEk/dev';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyB_tp56WORk_saLV_7Ku37pKKppoopPpeJFpmrXYggR8gbyj0ysmi-TQvdUJsxraRaSA/exec';
     
     document.getElementById('registrationForm').addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -88,18 +88,18 @@
       try {
         const response = await fetch(scriptURL, {
           method: 'POST',
-          mode: 'no-cors', // Using no-cors mode to prevent CORS issues
+          mode: 'no-cors', // no-cors mode limits detailed responses, but prevents CORS issues
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         });
         
-        // Since we're using no-cors, we might not receive a detailed response.
+        // With no-cors mode, the response details might be limited
         messageDiv.textContent = "Submission sent successfully!";
         messageDiv.className = "success";
         
-        // Optionally reset the form
+        // Optionally reset the form after submission
         document.getElementById('registrationForm').reset();
       } catch (error) {
         messageDiv.textContent = "An error occurred while submitting your data.";
