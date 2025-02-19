@@ -1,117 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KKSA Player Registration</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    form { max-width: 500px; }
-    label { display: block; margin-top: 1rem; }
-    input, select { width: 100%; padding: 0.5rem; }
-    .error { color: red; }
-    .success { color: green; }
+    /* Global Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    /* Preloader Styles */
+    #preloader {
+      background: #4CAF50; /* Green background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      color: #fff;
+    }
+    #preloader img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    /* Content hidden initially */
+    #content {
+      display: none;
+    }
+    /* Main content container */
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+    }
   </style>
 </head>
 <body>
-  <h1>Kiteta Kisau Sports U-23 Kyisa All Stars Registration</h1>
-  <form id="registrationForm">
-    <label>
-      Player Name:
-      <input type="text" id="playerName" required>
-    </label>
-    <label>
-      Date of Birth:
-      <input type="date" id="dob" required>
-      <small>Allowed: April 2, 2002 to March 31, 2007</small>
-    </label>
-    <label>
-      Club/Team:
-      <input type="text" id="club" required>
-    </label>
-    <label>
-      Discipline:
-      <select id="discipline" required>
-        <option value="">Select Discipline</option>
-        <option value="Soccer Men">Soccer Men</option>
-        <option value="Soccer Ladies">Soccer Ladies</option>
-        <option value="Volleyball Men">Volleyball Men</option>
-        <option value="Volleyball Ladies">Volleyball Ladies</option>
-        <option value="Basketball Men">Basketball Men</option>
-      </select>
-    </label>
-    <button type="submit">Submit</button>
-  </form>
+  <!-- Preloader Section -->
+  <div id="preloader">
+    <img src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
+    <h2>Loading...</h2>
+  </div>
   
-  <div id="message"></div>
+  <!-- Main Content Section -->
+  <div id="content">
+    <div class="container">
+      <h1>Kiteta Kisau Sports U-23 Kyisa All Stars Registration</h1>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfIcaqThVJYpsquIaut1NuKpf0ou0llCWGhiYOUlwNP6et67g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
   
   <script>
-    // Your provided Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzTrSUDwyGEXexdyhfEBtTKnKpH5CKTL5l9IjWlCT0LLR3ujA6xbACAjdqdD6Wxq996wg/exec';
-    
-    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const playerName = document.getElementById('playerName').value.trim();
-      const dob = document.getElementById('dob').value;
-      const club = document.getElementById('club').value.trim();
-      const discipline = document.getElementById('discipline').value;
-      const messageDiv = document.getElementById('message');
-      messageDiv.textContent = '';
-      messageDiv.className = '';
-      
-      // Client-side validation for DOB range
-      if (!dob) {
-        messageDiv.textContent = "Please provide a valid Date of Birth.";
-        messageDiv.className = "error";
-        return;
-      }
-      
-      const dobDate = new Date(dob);
-      const minDOB = new Date("2002-04-02"); // Player must be born after April 1, 2002
-      const maxDOB = new Date("2007-03-31"); // Player must be born before April 1, 2007
-      
-      if (dobDate < minDOB || dobDate > maxDOB) {
-        messageDiv.textContent = "Date of Birth must be between April 2, 2002 and March 31, 2007.";
-        messageDiv.className = "error";
-        return;
-      }
-      
-      // Prepare the data object
-      const data = {
-        playerName: playerName,
-        dob: dob,
-        club: club,
-        discipline: discipline
-      };
-      
-      try {
-        const response = await fetch(scriptURL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-        
-        const result = await response.json();
-        console.log(result);
-        
-        if (result.result === "success") {
-          messageDiv.textContent = "Submission sent successfully!";
-          messageDiv.className = "success";
-          // Optionally reset the form after successful submission
-          document.getElementById('registrationForm').reset();
-        } else {
-          messageDiv.textContent = "Error: " + result.message;
-          messageDiv.className = "error";
-        }
-      } catch (error) {
-        messageDiv.textContent = "An error occurred while submitting your data.";
-        messageDiv.className = "error";
-        console.error('Error:', error);
-      }
-    });
+    // Hide the preloader after 8 seconds and show the main content
+    setTimeout(function() {
+      document.getElementById('preloader').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }, 8000);
   </script>
 </body>
 </html>
