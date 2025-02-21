@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KYISA 2025 </title>
     <style>
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #eafaf1;
             margin: 0;
             padding: 0;
@@ -69,61 +66,80 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Gradient background with live colour animation */
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
-            background-size: 400% 400%;
-            animation: gradientAnimation 8s ease infinite, fadeIn 1s ease-in-out;
+            background: black;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            color: white;
+            color: #0f0;
             text-align: center;
-            padding: 20px;
-        }
-        
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 3rem;
+            overflow: hidden;
         }
 
-        #preloader .logo {
-            width: 150px;
-            margin-bottom: 20px;
-            animation: slideIn 1s ease-in-out;
-        }
-        
-        #preloader .text {
-            font-size: 24px;
-            margin-bottom: 20px;
-            animation: slideIn 1s ease-in-out;
-            text-transform: uppercase;
-            word-wrap: break-word;
+        .preloader {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #0f0;
+            display: inline-block;
+            animation: blinkCursor 0.6s infinite;
         }
 
-        #preloader .sports {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 200px;
-            height: 100px;
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
         }
 
-        #preloader .sports span {
+        .glitch {
+            animation: glitch 0.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+            50% { text-shadow: -2px -2px #ff00ff, 2px 2px #00ffff; }
+            100% { text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff; }
+        }
+
+        .matrix-rain {
             position: absolute;
-            font-size: 50px;
-            animation: infinity 4s infinite, colorChange 4s infinite;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
-        #preloader .sports span:nth-child(2) {
-            animation-delay: 1.33s;
+        .matrix-rain span {
+            position: absolute;
+            top: -50px;
+            color: #0f0;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            animation: rainDrop linear infinite;
         }
 
-        #preloader .sports span:nth-child(3) {
-            animation-delay: 2.66s;
+        @keyframes rainDrop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(100vh); opacity: 1; }
+        }
+
+        .matrix-fall {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: black;
+            z-index: 10;
+            opacity: 1;
+            animation: matrixDisappear 1.5s ease-in-out 8s forwards;
+        }
+
+        @keyframes matrixDisappear {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
         }
 
         /* Timer Styles */
@@ -159,18 +175,14 @@
 <body>
     <!-- Preloader Section -->
     <div id="preloader">
-        <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
-        <div class="text">KYISA 2025</div>
-        <div class="sports">
-            <span>⚽</span>
-            <span>🏀</span>
-            <span>🏐</span>
-        </div>
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="preloader glitch" id="preloaderText">KYISA 2025</div>
+        <div class="matrix-fall" id="matrixEffect"></div>
     </div>
     
     <!-- Sidebar Section -->
     <div id="sidebar">
-        <h2>provisional Squads</h2>
+        <h2><a href="index.html">Provisional Squads</a></h2>
         <a href="soccer_men.html">Soccer Men</a>
         <a href="soccer_ladies.html">Soccer Ladies</a>
         <a href="basketball_men.html">Basketball Men</a>
@@ -232,6 +244,44 @@
                 countdownElement.innerHTML = "The event has started";
             }
         }, 1000);
+
+        // Preloader text typing effect
+        const text = "KYISA 2025";
+        let index = 0;
+        const preloaderText = document.getElementById("preloaderText");
+        const matrixEffect = document.getElementById("matrixEffect");
+        const matrixRain = document.getElementById("matrixRain");
+        const words = ["KITETA", "KISAU", "WARD", "ALL", "STARS", "TEAMS"];
+        
+        function typeEffect() {
+            if (index < text.length) {
+                preloaderText.textContent += text[index];
+                index++;
+                setTimeout(typeEffect, Math.random() * 300 + 100); // Random delay between 100ms - 400ms
+            } else {
+                setTimeout(() => {
+                    matrixEffect.style.opacity = "0"; // Trigger matrix fade effect
+                    setTimeout(() => {
+                        matrixEffect.style.display = "none";
+                        preloaderText.style.display = "none";
+                    }, 1500);
+                }, 8000 - (index * 300)); // Ensure total preloader time is 8s
+            }
+        }
+        
+        function createMatrixRain() {
+            for (let i = 0; i < 30; i++) {
+                let span = document.createElement("span");
+                span.textContent = words[Math.floor(Math.random() * words.length)];
+                span.style.left = Math.random() * 100 + "vw";
+                span.style.animationDuration = Math.random() * 3 + 2 + "s";
+                matrixRain.appendChild(span);
+                setTimeout(() => span.remove(), 5000);
+            }
+        }
+        
+        setInterval(createMatrixRain, 500);
+        setTimeout(typeEffect, 500);
     </script>
 </body>
 </html>
