@@ -1,278 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WFLW60GGY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYISA 2025 U-23 Player Registration</title>
+    <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
 
-    gtag('config', 'G-3WFLW60GGY');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KYISA Player Registration</title>
-  <link rel="icon" href="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* Keyframes for animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eafaf1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
 
-    @keyframes slideIn {
-      0% { transform: translateY(100%); }
-      100% { transform: translateY(0); }
-    }
+        #sidebar {
+            background-color: #4b8b3b;
+            color: white;
+            width: 200px;
+            padding: 15px;
+        }
 
-    @keyframes infinity {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(50px, -50px); }
-      50% { transform: translate(100px, 0); }
-      75% { transform: translate(50px, 50px); }
-    }
+        #sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #3a6b2a;
+            border-radius: 5px;
+        }
 
-    @keyframes colorChange {
-      0% { color: #ff0000; }
-      25% { color: #00ff00; }
-      50% { color: #0000ff; }
-      75% { color: #ffff00; }
-      100% { color: #ff0000; }
-    }
+        #sidebar a:hover {
+            background-color: #2d572c;
+        }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
 
-    /* Global Styles */
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
+        h2 {
+            text-align: center;
+            color: #2d572c;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-    /* Preloader Styles */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* Gradient background with live colour animation */
-      background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
-      background-size: 400% 400%;
-      animation: gradientAnimation 8s ease infinite, fadeIn 1s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    
-    #preloader .logo {
-      width: 150px;
-      margin-bottom: 20px;
-      animation: slideIn 1s ease-in-out;
-    }
-    
-    #preloader .text {
-      font-size: 18px;
-      margin-bottom: 20px;
-      animation: slideIn 1s ease-in-out;
-      text-transform: uppercase;
-      word-wrap: break-word;
-    }
-    
-    #preloader .sports {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 100px;
-    }
-    
-    #preloader .sports span {
-      position: absolute;
-      font-size: 50px;
-      animation: infinity 4s infinite, colorChange 4s infinite;
-    }
-    
-    #preloader .sports span:nth-child(2) {
-      animation-delay: 1.33s;
-    }
-    
-    #preloader .sports span:nth-child(3) {
-      animation-delay: 2.66s;
-    }
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradient background with live colour animation */
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite, fadeIn 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        #preloader .logo {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+        
+        #preloader .text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+            text-transform: uppercase;
+            word-wrap: break-word;
+        }
+        
+        #preloader .sports {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 100px;
+        }
+        
+        #preloader .sports span {
+            position: absolute;
+            font-size: 50px;
+            animation: infinity 4s infinite, colorChange 4s infinite;
+        }
+        
+        #preloader .sports span:nth-child(2) {
+            animation-delay: 1.33s;
+        }
+        
+        #preloader .sports span:nth-child(3) {
+            animation-delay: 2.66s;
+        }
 
-    /* Main Content (Hidden initially) */
-    #content {
-      display: none;
-      padding-bottom: 80px; /* To ensure content doesn't overlap with footer */
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    
-    h1 {
-      color: #4CAF50;
-      margin-bottom: 20px;
-    }
-    
-    iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-      position: relative;
-    }
+        /* Timer Styles */
+        #timer {
+            font-size: 20px;
+            color: #ff0000;
+        }
 
-    .iframe-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: white;
-      z-index: 1;
-    }
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hidden */
+        }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-      
-      h1 {
-        font-size: 24px;
-      }
-      
-      iframe {
-        height: 600px;
-      }
-      
-      #preloader .text {
-        font-size: 14px;
-      }
-    }
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
 
-    /* Timer Styles */
-    #timer {
-      font-size: 20px;
-      color: #ff0000;
-    }
-
-    iframe {
-      border: none;
-    }
-
-    /* Footer Styles */
-    footer {
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #f8f9fa;
-      padding: 10px 0;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      display: none; /* Initially hidden */
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      color: #007BFF;
-    }
-  </style>
+        .social-icons a:hover {
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-  <!-- Preloader Section -->
-  <div id="preloader">
-    <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
-    <div class="text">KITETA KISAU SPORTS U-23 REGISTRATION PORTAL</div>
-    <div class="sports">
-      <span>⚽</span>
-      <span>🏀</span>
-      <span>🏐</span>
+    <!-- Preloader Section -->
+    <div id="preloader">
+        <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
+        <div class="text">KITETA KISAU SPORTS U-23 REGISTRATION PORTAL</div>
+        <div class="sports">
+            <span>⚽</span>
+            <span>🏀</span>
+            <span>🏐</span>
+        </div>
     </div>
-  </div>
-  
-  <!-- Main Content Section -->
-  <div id="content">
-    <div class="container">
-      <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo" style="width: 150px; margin-bottom: 20px;">
-      <h1>KYISA Registration Form</h1>
-      <div style="position: relative;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfIcaqThVJYpsquIaut1NuKpf0ou0llCWGhiYOUlwNP6et67g/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        <div class="iframe-overlay"></div>
-      </div>
+    
+    <!-- Main Content Section -->
+    <div id="content">
+        <h2>KYISA 2025 U-23 Player Registration</h2>
+        <div id="countdown"></div>
     </div>
-  </div>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 Kiteta Kisau Sports. All Rights Reserved.</p>
-    <div id="timer"></div>
-    <div class="social-icons">
-      <a href="https://web.facebook.com/kitetakisausports" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://x.com/KKSports0" target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://leagues.teamlinkt.com/kitetakisausports" target="_blank">
-        <i class="fas fa-globe"></i>
-      </a>
-      <a href="https://www.youtube.com/@kitetakisausports" target="_blank">
-        <i class="fab fa-youtube"></i>
-      </a>
-    </div>
-  </footer>
-  
-  <script>
-    // Hide the preloader after 8 seconds and show the main content and footer
-    setTimeout(function() {
-      document.getElementById('preloader').style.display = 'none';
-      document.getElementById('content').style.display = 'block';
-      document.querySelector('footer').style.display = 'block';
-    }, 8000);
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Kiteta Kisau Sports. All Rights Reserved.</p>
+        <div id="timer"></div>
+        <div class="social-icons">
+            <a href="https://web.facebook.com/kitetakisausports" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/KKSports0" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://leagues.teamlinkt.com/kitetakisausports" target="_blank">
+                <i class="fas fa-globe"></i>
+            </a>
+            <a href="https://www.youtube.com/@kitetakisausports" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+    
+    <script>
+        // Hide the preloader after 8 seconds and show the main content and footer
+        setTimeout(function() {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+        }, 8000);
 
-    // Timer Script
-    function updateTimer() {
-      const now = new Date();
-      const registrationClose = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 18, 0, 0); // Tomorrow at 6 PM
-      const timeDifference = registrationClose - now;
+        // Countdown timer
+        var countDownDate = new Date("Mar 15, 2025 18:00:00").getTime();
+        var countdownElement = document.getElementById("countdown");
 
-      if (timeDifference > 0) {
-        const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
 
-        document.getElementById('timer').innerText = `Registration closes in ${hours}h ${minutes}m ${seconds}s`;
-      } else {
-        document.getElementById('timer').innerText = "Registration is closed.";
-      }
-    }
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    setInterval(updateTimer, 1000);
-  </script>
+            countdownElement.innerHTML = "KYISA 2025 Sub-county Finals starts in " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                countdownElement.innerHTML = "The event has started";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
