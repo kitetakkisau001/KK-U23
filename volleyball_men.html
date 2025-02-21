@@ -3,39 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volleyball Men</title>
+    <title>Volleyball Men - KYISA 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; }
-        .team-section { margin-bottom: 20px; }
-        .team-section h2 { background-color: #f2f2f2; padding: 10px; }
-        .team-list { list-style-type: none; padding: 0; }
-        .team-list li { margin: 5px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eafaf1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            background-color: #4b8b3b;
+            color: white;
+            width: 200px;
+            padding: 15px;
+        }
+        #sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #3a6b2a;
+            border-radius: 5px;
+        }
+        #sidebar a:hover {
+            background-color: #2d572c;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #2d572c;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4b8b3b;
+            color: white;
+        }
+        .passport-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('passport-icon.png'); /* Ensure you have this icon in your directory */
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
-    <div class="team-section" id="volleyball-men">
-        <h2>Volleyball Men</h2>
-        <ul class="team-list">
-            <li>Titus Makau Kioko, Utuneni Volleyball</li>
-            <li>Joseph Mwanzia Sila, Syunguni Volleyball</li>
-            <li>John Muthiani, Syunguni Volleyball</li>
-            <li>Antony Mwanzia Ndolo, Syunguni Volleyball</li>
-            <li>Hillary Maina, Utuneni Volleyball Club</li>
-            <li>Samuel Kilonzo Wambua, Syunguni Volleyball</li>
-            <li>Peter Mwendwa Muia, Kyungu Volleyball</li>
-            <li>Jacob Mutheke, Utuneni Volleyball</li>
-            <li>Gabriel Mwendwa, Syunguni Volleyball</li>
-            <li>Victor Kasyoki, Utuneni Volleyball Club</li>
-            <li>Mutua Mwaiwa, Utuneni Volleyball</li>
-            <li>Eric Nzioka, Syunguni Volleyball</li>
-            <li>Lawrence Mutiso, Utuneni Volleyball</li>
-            <li>Stephen Mwendwa Muia, Utuneni Volleyball</li>
-            <li>Jackson Mutunge Munyao, Ngaa Volleyball</li>
-            <li>Lawrence Mutiso Mwanzia, Ngaa Volleyball</li>
-        </ul>
+    <div id="sidebar">
+        <h2>Provisional Squads</h2>
+        <a href="soccer_men.html">Soccer Men</a>
+        <a href="soccer_ladies.html">Soccer Ladies</a>
+        <a href="basketball_men.html">Basketball Men</a>
+        <a href="volleyball_men.html">Volleyball Men</a>
+        <a href="volleyball_ladies.html">Volleyball Ladies</a>
     </div>
-    <script>
-        // Your JavaScript code here
-    </script>
+    <div id="content">
+        <h2>Volleyball Men</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S/No.</th>
+                    <th>Player Name</th>
+                    <th>Club</th>
+                    <th>Passport</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Titus Makau Kioko</td><td>Utuneni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>2</td><td>Joseph Mwanzia Sila</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>3</td><td>John Muthiani</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>4</td><td>Antony Mwanzia Ndolo</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>5</td><td>Hillary Maina</td><td>Utuneni Volleyball Club</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>6</td><td>Samuel Kilonzo Wambua</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>7</td><td>Peter Mwendwa Muia</td><td>Kyungu Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>8</td><td>Jacob Mutheke</td><td>Utuneni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>9</td><td>Gabriel Mwendwa</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>10</td><td>Victor Kasyoki</td><td>Utuneni Volleyball Club</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>11</td><td>Mutua Mwaiwa</td><td>Utuneni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>12</td><td>Eric Nzioka</td><td>Syunguni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>13</td><td>Lawrence Mutiso</td><td>Utuneni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>14</td><td>Stephen Mwendwa Muia</td><td>Utuneni Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>15</td><td>Jackson Mutunge Munyao</td><td>Ngaa Volleyball</td><td><span class="passport-icon"></span></td></tr>
+                <tr><td>16</td><td>Lawrence Mutiso Mwanzia</td><td>Ngaa Volleyball</td><td><span class="passport-icon"></span></td></tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
