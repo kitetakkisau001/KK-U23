@@ -1,1 +1,93 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Men - KYISA 2025</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eafaf1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            background-color: #4b8b3b;
+            color: white;
+            width: 200px;
+            padding: 15px;
+        }
+        #sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #3a6b2a;
+            border-radius: 5px;
+        }
+        #sidebar a:hover {
+            background-color: #2d572c;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        h2 {
+            text-align: center;
+            color: #2d572c;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4b8b3b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="soccer_men.html">Soccer Men</a>
+        <!-- Add other menu items as needed -->
+    </div>
+    <div id="content">
+        <h2>Soccer Men</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Club</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add player rows here -->
+                <tr>
+                    <td>Player 1</td>
+                    <td>Club 1</td>
+                </tr>
+                <tr>
+                    <td>Player 2</td>
+                    <td>Club 2</td>
+                </tr>
+                <!-- Repeat for more players -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
