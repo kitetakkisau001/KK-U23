@@ -48,6 +48,7 @@
             margin-left: 220px;
             overflow-y: auto;
             background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            display: none; /* Ensure hidden initially */
         }
 
         h2 {
@@ -264,6 +265,9 @@
                     setTimeout(() => {
                         matrixEffect.style.display = "none";
                         preloaderText.style.display = "none";
+                        document.getElementById('preloader').style.display = 'none';
+                        document.getElementById('content').style.display = 'block';
+                        document.querySelector('footer').style.display = 'block';
                     }, 1500);
                 }, 8000 - (index * 300)); // Ensure total preloader time is 8s
             }
