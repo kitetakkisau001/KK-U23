@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soccer Ladies - KYISA 2025</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>KYISA 2025 </title>
     <style>
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             background-color: #eafaf1;
             margin: 0;
             padding: 0;
             display: flex;
-            height: 100vh;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
         #sidebar {
             background-color: #4b8b3b;
             color: white;
-            width: 220px;
+            width: 200px;
             padding: 15px;
-            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100%;
         }
+
         #sidebar a {
             display: block;
             color: white;
@@ -29,63 +37,39 @@
             padding: 10px;
             background-color: #3a6b2a;
             border-radius: 5px;
+            font-size: 16px;
             transition: background-color 0.3s;
         }
+
         #sidebar a:hover {
             background-color: #2d572c;
         }
+
         #content {
             flex-grow: 1;
             padding: 20px;
+            margin-left: 220px;
             overflow-y: auto;
-            background: linear-gradient(to right, #eafaf1, #d4f7d3);
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
         }
+
         h2 {
             text-align: center;
             color: #2d572c;
             font-weight: bold;
             text-transform: uppercase;
+            font-size: 24px;
             margin-bottom: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        table, th, td {
-            border: 1px solid #dddddd;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #4b8b3b;
-            color: white;
-            font-size: 16px;
-        }
-        td {
-            background-color: #f9f9f9;
-            transition: background-color 0.3s;
-        }
-        tr:hover td {
-            background-color: #eafaf1;
-        }
-        .passport-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-        }
-        /* Preloader styles */
+
+        /* Preloader Styles */
         #preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            /* Gradient background with live colour animation */
             background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
             background-size: 400% 400%;
             animation: gradientAnimation 8s ease infinite, fadeIn 1s ease-in-out;
@@ -98,28 +82,77 @@
             text-align: center;
             padding: 20px;
         }
+        
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+
+        #preloader .logo {
+            width: 150px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
         }
-        .typing {
-            border-right: .1em solid white;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+        
+        #preloader .text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+            text-transform: uppercase;
+            word-wrap: break-word;
         }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+
+        #preloader .sports {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 100px;
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
+
+        #preloader .sports span {
+            position: absolute;
+            font-size: 50px;
+            animation: infinity 4s infinite, colorChange 4s infinite;
+        }
+
+        #preloader .sports span:nth-child(2) {
+            animation-delay: 1.33s;
+        }
+
+        #preloader .sports span:nth-child(3) {
+            animation-delay: 2.66s;
+        }
+
+        /* Timer Styles */
+        #timer {
+            font-size: 20px;
+            color: #ff0000;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Initially hidden */
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007BFF;
         }
     </style>
 </head>
@@ -127,50 +160,50 @@
     <!-- Preloader Section -->
     <div id="preloader">
         <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
-        <div class="text"><span class="typing" id="typing-text"></span></div>
+        <div class="text">KYISA 2025</div>
         <div class="sports">
             <span>⚽</span>
             <span>🏀</span>
             <span>🏐</span>
         </div>
     </div>
-
+    
+    <!-- Sidebar Section -->
     <div id="sidebar">
-        <h2>Provisional Squads</h2>
+        <h2>provisional Squads</h2>
         <a href="soccer_men.html">Soccer Men</a>
         <a href="soccer_ladies.html">Soccer Ladies</a>
         <a href="basketball_men.html">Basketball Men</a>
         <a href="volleyball_men.html">Volleyball Men</a>
         <a href="volleyball_ladies.html">Volleyball Ladies</a>
     </div>
+
+    <!-- Main Content Section -->
     <div id="content">
-        <h2>Soccer Ladies</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>S/No.</th>
-                    <th>Player Name</th>
-                    <th>Club</th>
-                    <th>Passport</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Purity Nduku</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>2</td><td>Lilian Ngilu</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>3</td><td>Mary Nthenya</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>4</td><td>Carol Mutinda</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>5</td><td>Stella Maris Kasyoki</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>6</td><td>Shirleen Mbithe</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>7</td><td>Wavinya Kimatu</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>8</td><td>Mercy Mutethya</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>9</td><td>Naomi Mwende</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>10</td><td>Florence Nditi</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>11</td><td>Sharlettes Ndanu</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-                <tr><td>12</td><td>Georgina Mumbua</td><td>Kiteta/Kisau</td><td><i class="fas fa-passport passport-icon"></i></td></tr>
-            </tbody>
-        </table>
+        <h2>KITETA KISAU ALL STARS TEAM LISTS</h2>
+        <div id="countdown"></div>
     </div>
 
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Kiteta Kisau Sports. All Rights Reserved.</p>
+        <div id="timer"></div>
+        <div class="social-icons">
+            <a href="https://web.facebook.com/kitetakisausports" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/KKSports0" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://leagues.teamlinkt.com/kitetakisausports" target="_blank">
+                <i class="fas fa-globe"></i>
+            </a>
+            <a href="https://www.youtube.com/@kitetakisausports" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+    
     <script>
         // Hide the preloader after 8 seconds and show the main content and footer
         setTimeout(function() {
@@ -179,17 +212,26 @@
             document.querySelector('footer').style.display = 'block';
         }, 8000);
 
-        // Typing effect for preloader text
-        const text = "KYISA 2025";
-        let index = 0;
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("typing-text").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 150);
+        // Countdown timer
+        var countDownDate = new Date("Mar 15, 2025 18:00:00").getTime();
+        var countdownElement = document.getElementById("countdown");
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = "KYISA 2025 Sub-county Finals starts in " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                countdownElement.innerHTML = "The event has started";
             }
-        }
-        typeWriter();
+        }, 1000);
     </script>
 </body>
 </html>
