@@ -9,7 +9,6 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
         body {
             font-family: 'Roboto', Arial, sans-serif;
             background-color: #eafaf1;
@@ -19,7 +18,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
         #sidebar {
             background-color: #4b8b3b;
             color: white;
@@ -28,7 +26,6 @@
             position: fixed;
             height: 100%;
         }
-
         #sidebar a {
             display: block;
             color: white;
@@ -40,11 +37,9 @@
             font-size: 16px;
             transition: background-color 0.3s;
         }
-
         #sidebar a:hover {
             background-color: #2d572c;
         }
-
         #content {
             flex-grow: 1;
             padding: 20px;
@@ -52,7 +47,6 @@
             overflow-y: auto;
             background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
         }
-
         h2 {
             text-align: center;
             color: #2d572c;
@@ -61,7 +55,6 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-
         /* Preloader Styles */
         #preloader {
             position: fixed;
@@ -69,70 +62,56 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Gradient background with live colour animation */
-            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
-            background-size: 400% 400%;
-            animation: gradientAnimation 8s ease infinite, fadeIn 1s ease-in-out;
+            background: black;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            color: white;
+            color: green;
             text-align: center;
             padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
         }
-        
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        #preloader .logo {
-            width: 150px;
-            margin-bottom: 20px;
-            animation: slideIn 1s ease-in-out;
-        }
-        
         #preloader .text {
             font-size: 24px;
             margin-bottom: 20px;
-            animation: slideIn 1s ease-in-out;
             text-transform: uppercase;
             word-wrap: break-word;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid green;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
         }
-
-        #preloader .sports {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 200px;
-            height: 100px;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
-
-        #preloader .sports span {
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: green; }
+        }
+        @keyframes matrixRain {
+            from { top: -100%; }
+            to { top: 100%; }
+        }
+        .rain-container {
             position: absolute;
-            font-size: 50px;
-            animation: infinity 4s infinite, colorChange 4s infinite;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
-
-        #preloader .sports span:nth-child(2) {
-            animation-delay: 1.33s;
+        .rain-drop {
+            position: absolute;
+            top: -100%;
+            width: 1em;
+            color: green;
+            animation: matrixRain 4s linear infinite;
         }
-
-        #preloader .sports span:nth-child(3) {
-            animation-delay: 2.66s;
-        }
-
-        /* Timer Styles */
         #timer {
             font-size: 20px;
             color: #ff0000;
         }
-
-        /* Footer Styles */
         footer {
             text-align: center;
             position: fixed;
@@ -141,16 +120,14 @@
             background-color: #f8f9fa;
             padding: 10px 0;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Initially hidden */
+            display: none;
         }
-
         .social-icons a {
             margin: 0 10px;
             color: #333;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .social-icons a:hover {
             color: #007BFF;
         }
@@ -161,13 +138,8 @@
     <div id="preloader">
         <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
         <div class="text">KYISA 2025</div>
-        <div class="sports">
-            <span>⚽</span>
-            <span>🏀</span>
-            <span>🏐</span>
-        </div>
+        <div class="rain-container"></div>
     </div>
-    
     <!-- Sidebar Section -->
     <div id="sidebar">
         <h2>provisional Squads</h2>
@@ -177,13 +149,11 @@
         <a href="volleyball_men.html">Volleyball Men</a>
         <a href="volleyball_ladies.html">Volleyball Ladies</a>
     </div>
-
     <!-- Main Content Section -->
     <div id="content">
         <h2>KITETA KISAU ALL STARS TEAM LISTS</h2>
         <div id="countdown"></div>
     </div>
-
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Kiteta Kisau Sports. All Rights Reserved.</p>
@@ -203,7 +173,6 @@
             </a>
         </div>
     </footer>
-    
     <script>
         // Hide the preloader after 8 seconds and show the main content and footer
         setTimeout(function() {
@@ -211,27 +180,34 @@
             document.getElementById('content').style.display = 'block';
             document.querySelector('footer').style.display = 'block';
         }, 8000);
-
         // Countdown timer
         var countDownDate = new Date("Mar 15, 2025 18:00:00").getTime();
         var countdownElement = document.getElementById("countdown");
-
         var x = setInterval(function() {
             var now = new Date().getTime();
             var distance = countDownDate - now;
-
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
             countdownElement.innerHTML = "KYISA 2025 Sub-county Finals starts in " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
             if (distance < 0) {
                 clearInterval(x);
                 countdownElement.innerHTML = "The event has started";
             }
         }, 1000);
+
+        // Rain drop matrix effect
+        function createRainDrop() {
+            const rainContainer = document.querySelector('.rain-container');
+            const drop = document.createElement('div');
+            drop.className = 'rain-drop';
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.innerText = 'kiteta kisau under 23 all star teams';
+            rainContainer.appendChild(drop);
+            setTimeout(() => drop.remove(), 4000); // Remove drop after animation
+        }
+        setInterval(createRainDrop, 100);
     </script>
 </body>
 </html>
