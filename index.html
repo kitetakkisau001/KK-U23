@@ -94,23 +94,6 @@
             from, to { border-color: transparent; }
             50% { border-color: green; }
         }
-        @keyframes matrixRain {
-            from { top: -100%; }
-            to { top: 100%; }
-        }
-        .rain-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .rain-drop {
-            position: absolute;
-            top: -100%;
-            width: 1em;
-            color: green;
-            animation: matrixRain 4s linear infinite;
-        }
         #timer {
             font-size: 30px;
             color: #ff0000;
@@ -147,7 +130,6 @@
     <div id="preloader">
         <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
         <div class="text">KYISA 2025</div>
-        <div class="rain-container"></div>
     </div>
     <!-- Sidebar Section -->
     <div id="sidebar">
@@ -205,18 +187,6 @@
                 countdownElement.innerHTML = "The event has started";
             }
         }, 1000);
-
-        // Rain drop matrix effect
-        function createRainDrop() {
-            const rainContainer = document.querySelector('.rain-container');
-            const drop = document.createElement('div');
-            drop.className = 'rain-drop';
-            drop.style.left = Math.random() * 100 + 'vw';
-            drop.innerText = 'kiteta kisau under 23 all star teams';
-            rainContainer.appendChild(drop);
-            setTimeout(() => drop.remove(), 4000); // Remove drop after animation
-        }
-        setInterval(createRainDrop, 100);
     </script>
 </body>
 </html>
