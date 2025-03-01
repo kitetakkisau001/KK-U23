@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYISA 2025 </title>
+    <title>KYISA 2025</title>
     <style>
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -104,6 +104,33 @@
             background-color: #fff0f0;
             box-shadow: 0 0 10px #ff0000;
         }
+        .logo {
+            width: 100px;
+            height: 100px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            background-color: #ddd;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background-color: green;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            transition: width 0.2s;
+        }
         footer {
             text-align: center;
             position: fixed;
@@ -130,6 +157,9 @@
     <div id="preloader">
         <img class="logo" src="https://raw.githubusercontent.com/kitetakkisau001/KYISA-player-registration/main/kiteta%20kisau%20logo.png" alt="Kiteta Kisau Logo">
         <div class="text">KYISA 2025</div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
     </div>
     <!-- Sidebar Section -->
     <div id="sidebar">
@@ -171,6 +201,19 @@
             document.getElementById('content').style.display = 'block';
             document.querySelector('footer').style.display = 'block';
         }, 8000);
+
+        // Animate progress bar
+        let progressBarFill = document.getElementById('progress-bar-fill');
+        let width = 0;
+        let interval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                progressBarFill.style.width = width + '%';
+            }
+        }, 80);
+
         // Countdown timer
         var countDownDate = new Date("Mar 15, 2025 18:00:00").getTime();
         var countdownElement = document.getElementById("countdown");
