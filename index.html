@@ -107,17 +107,12 @@
         .logo {
             width: 100px;
             height: 100px;
-            animation: bounce 2s infinite, glow 1.5s infinite;
+            animation: bounce 2s infinite;
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-30px); }
             60% { transform: translateY(-15px); }
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px green; }
-            50% { box-shadow: 0 0 20px green; }
-            100% { box-shadow: 0 0 5px green; }
         }
         .progress-bar {
             width: 80%;
